@@ -6,7 +6,7 @@ const Fact = (props) =>{
 
         <div className='fact-container'>
             <h1>id{id}: {text}</h1>
-            <FactForm id={id} text={text} source={source} username={username}/>
+            {/* <FactForm id={id} text={text} source={source} username={username}/> */}
         </div>
     )
 }
