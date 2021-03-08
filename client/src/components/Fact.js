@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import FactForm from "./FactForm"
 
 const Fact = (props) =>{
@@ -9,6 +10,10 @@ const Fact = (props) =>{
             <p>source: {source}</p>
             <p>{username}</p>
             <button onClick={()=> editFactClickHandler(id)}>edit</button>
+            <Link to={`facts/${id}`}>
+                edit with react router
+            </Link>
+            
             {/* <FactForm id={id} text={text} source={source} username={username}/> */}
         </div>
     )

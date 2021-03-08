@@ -2,6 +2,11 @@ class Api::FactsController < ApplicationController
     def index
       render json: Fact.all
     end
+    
+    def show 
+      render json: Fact.find(params[:id])
+    
+    end
 
     def create 
        fact = Fact.new(fact_params)
