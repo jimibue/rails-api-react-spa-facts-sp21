@@ -9,7 +9,7 @@ class Api::FactsController < ApplicationController
        if fact.save
           render json: fact
        else
-          render json: {fact.errors}, status: :unprocessable_enity
+         render json: { errors: fact.errors }, status: :unprocessable_entity 
        end
     end
 
@@ -19,7 +19,7 @@ class Api::FactsController < ApplicationController
       if fact.update(fact_params)
          render json: fact
       else
-        render json: {fact.errors}, status: :unprocessable_enytity
+         render json: {errors: fact.errors}, status: :unprocessable_entity
       end
     end
 
