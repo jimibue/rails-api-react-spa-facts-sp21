@@ -1,6 +1,6 @@
 import {useState} from 'react'
 const FactForm = (props) => {
-    const {addFact, setShowForm, id, text: initText, username: initUsername, source: initSource} = props
+    const {addFact, updateFact, setEditFactObj, setShowForm, id, text: initText, username: initUsername, source: initSource} = props
     const [text, setText] = useState(initText ? initText: '' )
     const [username, setUsername] = useState(initUsername ? initUsername : '')
     const [source, setSource] = useState(initSource ? initSource : '')
@@ -10,6 +10,8 @@ const FactForm = (props) => {
         console.log({text, source, username})
         if(id){
             console.log('update axios call here')
+            updateFact({text, source, username}, id)
+            setEditFactObj(null)
         } else {
             console.log('create call')
             addFact({text, source, username})

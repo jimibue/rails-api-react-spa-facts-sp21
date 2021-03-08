@@ -30,7 +30,7 @@ function App() {
 
   const renderPage = () => {
     return showForm ? <FactForm addFact={addFact} setShowForm={setShowForm} /> :
-           editFactObj ? <FactForm {...editFactObj} setShowForm={setShowForm} /> :
+           editFactObj ? <FactForm setEditFactObj={setEditFactObj} updateFact={updateFact} {...editFactObj} setShowForm={setShowForm} /> :
                          <Facts editFactClickHandler={editFactClickHandler} facts={facts} />
   }
   const goBack =()=> {
@@ -51,6 +51,17 @@ function App() {
     } catch (err) {
       alert('error')
     }
+  }
+
+  const updateFact = async (fact, id) => {
+   try{
+     let res = await axios.put(`/api/facts/${id}`, {fact})
+     // res.data will be the updateObj
+     let updateFacts = facts.map(fact => fact.id == id ? res.data : fact) 
+     setFacts(updateFacts)
+   }catch(err){
+      alert('error')
+   }
   }
   return (
     <div className="App">
