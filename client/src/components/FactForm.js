@@ -1,6 +1,6 @@
 import {useState} from 'react'
 const FactForm = (props) => {
-    const {addFact, setShowFrom, id, text: initText, username: initUsername, source: initSource} = props
+    const {addFact, setShowForm, id, text: initText, username: initUsername, source: initSource} = props
     const [text, setText] = useState(initText ? initText: '' )
     const [username, setUsername] = useState(initUsername ? initUsername : '')
     const [source, setSource] = useState(initSource ? initSource : '')
@@ -13,7 +13,7 @@ const FactForm = (props) => {
         } else {
             console.log('create call')
             addFact({text, source, username})
-            setShowFrom(false)
+            setShowForm(false)
         }
     }
     return(

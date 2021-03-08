@@ -2,10 +2,10 @@ import Fact from './Fact'
 
 
 const Facts = (props) => {
-    const {facts} = props
+    const {facts, editFactClickHandler} = props
    
     const renderFacts = () => {
-        return facts.map( fact => <Fact key={fact.id} {...fact}/>)
+        return facts.map( fact => <Fact editFactClickHandler={editFactClickHandler} key={fact.id} {...fact}/>)
     }
     return (
         <>
